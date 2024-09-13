@@ -1,0 +1,14 @@
+C:\Nackademin\c#\Git\Prod-Cata\ProductCatalogue\ProductCatalogue\bin\Debug\net8.0\ProductCatalogue.exe
+C:\Nackademin\c#\Git\Prod-Cata\ProductCatalogue\ProductCatalogue\bin\Debug\net8.0\ProductCatalogue.deps.json
+C:\Nackademin\c#\Git\Prod-Cata\ProductCatalogue\ProductCatalogue\bin\Debug\net8.0\ProductCatalogue.runtimeconfig.json
+C:\Nackademin\c#\Git\Prod-Cata\ProductCatalogue\ProductCatalogue\bin\Debug\net8.0\ProductCatalogue.dll
+C:\Nackademin\c#\Git\Prod-Cata\ProductCatalogue\ProductCatalogue\bin\Debug\net8.0\ProductCatalogue.pdb
+C:\Nackademin\c#\Git\Prod-Cata\ProductCatalogue\ProductCatalogue\obj\Debug\net8.0\ProductCatalogue.GeneratedMSBuildEditorConfig.editorconfig
+C:\Nackademin\c#\Git\Prod-Cata\ProductCatalogue\ProductCatalogue\obj\Debug\net8.0\ProductCatalogue.AssemblyInfoInputs.cache
+C:\Nackademin\c#\Git\Prod-Cata\ProductCatalogue\ProductCatalogue\obj\Debug\net8.0\ProductCatalogue.AssemblyInfo.cs
+C:\Nackademin\c#\Git\Prod-Cata\ProductCatalogue\ProductCatalogue\obj\Debug\net8.0\ProductCatalogue.csproj.CoreCompileInputs.cache
+C:\Nackademin\c#\Git\Prod-Cata\ProductCatalogue\ProductCatalogue\obj\Debug\net8.0\ProductCatalogue.dll
+C:\Nackademin\c#\Git\Prod-Cata\ProductCatalogue\ProductCatalogue\obj\Debug\net8.0\refint\ProductCatalogue.dll
+C:\Nackademin\c#\Git\Prod-Cata\ProductCatalogue\ProductCatalogue\obj\Debug\net8.0\ProductCatalogue.pdb
+C:\Nackademin\c#\Git\Prod-Cata\ProductCatalogue\ProductCatalogue\obj\Debug\net8.0\ProductCatalogue.genruntimeconfig.cache
+C:\Nackademin\c#\Git\Prod-Cata\ProductCatalogue\ProductCatalogue\obj\Debug\net8.0\ref\ProductCatalogue.dll
