@@ -1,6 +1,7 @@
-﻿int dink = 1;
+﻿using ProductCatalogue.Models;
 
 
+int dink = 1;
 while (dink < 2)
 {
     Console.WriteLine("Cunt.");
@@ -8,3 +9,6 @@ while (dink < 2)
 
     dink++;
 }
+
+
+Console.ReadKey();

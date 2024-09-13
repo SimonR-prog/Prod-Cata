@@ -12,3 +12,4 @@ C:\Nackademin\c#\Git\Prod-Cata\ProductCatalogue\ProductCatalogue\obj\Debug\net8.
 C:\Nackademin\c#\Git\Prod-Cata\ProductCatalogue\ProductCatalogue\obj\Debug\net8.0\ProductCatalogue.pdb
 C:\Nackademin\c#\Git\Prod-Cata\ProductCatalogue\ProductCatalogue\obj\Debug\net8.0\ProductCatalogue.genruntimeconfig.cache
 C:\Nackademin\c#\Git\Prod-Cata\ProductCatalogue\ProductCatalogue\obj\Debug\net8.0\ref\ProductCatalogue.dll
+C:\Nackademin\c#\Git\Prod-Cata\ProductCatalogue\ProductCatalogue\obj\Debug\net8.0\ProductCatalogue.sourcelink.json
