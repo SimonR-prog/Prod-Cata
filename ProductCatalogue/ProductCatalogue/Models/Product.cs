@@ -19,4 +19,9 @@ public class Product
 }
 
 
+/* Maybe needed in the future.
 
+Guid id = Guid.NewGuid();
+string productId = Guid.NewGuid().ToString():
+
+*/
