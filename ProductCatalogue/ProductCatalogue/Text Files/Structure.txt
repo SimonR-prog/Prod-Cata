@@ -1,0 +1,116 @@
+﻿Assignment;
+
+Program needs;
+	Productclass.
+		Contain productname, price and id.
+		Should  automatically be given a unique id.  (GUID)
+		Product should then be added to a list.
+			If not already in the list.
+			And if the input from user is correct.
+	User should add name and price for the product.
+	User should be able to see the entire list.
+	List should be stored in a txt file in json format.
+	Ability to remove or change the products.
+	Add an old list of products into the new one.
+
+
+Optional;
+	Categoryclass to store the different products into different categories.
+		Probably want an option to add a new category if it doesn't exist.
+
+--------------------------------------------------------------------------
+
+Structure;
+
+Models;
+	Product class
+Menues;
+	MainMenu()
+	ProductMenu()
+Service; (CRUD - Create, read, update, delete.)
+	ProductService
+		CreateProduct()
+			input
+			if checklist(product) == false;
+				add product
+			else
+				"product already in list"
+
+		UpdateProduct()
+		DeleteProduct()
+		ShowList()
+		ShowProduct()
+
+		CheckList(product)
+			//Checks if the product is already in the product list.
+			//Must be usable for both Id and productName.
+			//Or to use for checking an entire list?
+			productList = ImportJson()
+			if product in productList
+				return true
+			else
+				return false
+
+	FileService
+		Import json-file to list.
+		Export list to json-file.
+
+--------------------------------------------------------------------------
+
+Menu;
+	Clear console.
+	1. Show the products.
+	2. Add a product.
+	3. Change a product.
+	4. Remove a product.
+	5. Add an old list into the new one.
+	0. Exit program.
+
+--------------------------------------------------------------------------
+
+Methods;
+
+
+--FileService--
+
+listLocation = Variable that is the location of the txt file to read/write to/from.
+
+
+//Will also be used to merge lists. Need to be able to send a string of a location to it.
+ImportJson(string "")  
+	if string != "";    --Takes the input string as the location of the txt file.
+		Deserialize json txt into objects and add to the productList.
+		return productList
+	else;       --Uses the default txt file.
+		Deserialize the listlocation into objects and add to the productlist.
+		return productList.
+
+ExportJson(productList)
+	Write to the text file.
+	Return True for testing.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
