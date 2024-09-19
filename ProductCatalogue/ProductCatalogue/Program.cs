@@ -2,18 +2,15 @@
 using ProductCatalogue.Services;
 
 
-int dink = 1;
-while (dink < 4)
+while (true)
 {
     //Start the mainmenu part and goes from there.
     MainMenu.DisplayMenu();
     Console.ReadKey();
 
 
-
+    //Making sure the filepath works.
     string donk = FileService.JsonService();
     Console.WriteLine(donk);
 
-
-    dink++;
 }
