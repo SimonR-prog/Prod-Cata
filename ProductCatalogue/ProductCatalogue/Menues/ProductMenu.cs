@@ -1,5 +1,4 @@
 ﻿
-using ProductCatalogue.Services;
 using System.Text.Json.Serialization;
 
 namespace ProductCatalogue.Menues;
@@ -14,22 +13,11 @@ internal class ProductMenu
                 case 1:
                     Console.WriteLine("1");
 
-
-
-
                     break;
 
                 case 2:
-                    
-                    Console.Clear();
-                    Console.WriteLine("2. Add a product; ");
-                    Console.Write("Name the product? > ");
-                    string productName = Console.ReadLine();
-                    Console.WriteLine(productName);
-                    Console.Write("Which price would you like to give the product? > ");
-                    var price = Console.ReadLine();
-                    Console.WriteLine(price);
 
+                    Console.Clear();
                     Console.ReadKey();
 
 

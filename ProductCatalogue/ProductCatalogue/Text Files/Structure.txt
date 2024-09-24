@@ -30,12 +30,6 @@ Menues;
 Service; (CRUD - Create, read, update, delete.)
 	ProductService
 		CreateProduct()
-			input
-			if checklist(product) == false;
-				add product
-			else
-				"product already in list"
-
 		UpdateProduct()
 		DeleteProduct()
 		ShowList()
@@ -66,28 +60,6 @@ Menu;
 	5. Add an old list into the new one.
 	0. Exit program.
 
---------------------------------------------------------------------------
-
-Methods;
-
-
---FileService--
-
-listLocation = Variable that is the location of the txt file to read/write to/from.
-
-
-//Will also be used to merge lists. Need to be able to send a string of a location to it.
-ImportJson(string "")  
-	if string != "";    --Takes the input string as the location of the txt file.
-		Deserialize json txt into objects and add to the productList.
-		return productList
-	else;       --Uses the default txt file.
-		Deserialize the listlocation into objects and add to the productlist.
-		return productList.
-
-ExportJson(productList)
-	Write to the text file.
-	Return True for testing.
 
 
 

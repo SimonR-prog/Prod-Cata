@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Nackademin\\c#\\Git\\Prod-Cata\\ProductCatalogue\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{3AA023DE-3D67-423A-A85A-BE2F5BE50759}|ProductCatalogue\\ProductCatalogue.csproj|c:\\nackademin\\c#\\git\\prod-cata\\productcatalogue\\productcatalogue\\services\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3AA023DE-3D67-423A-A85A-BE2F5BE50759}|ProductCatalogue\\ProductCatalogue.csproj|solutionrelative:productcatalogue\\services\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{3AA023DE-3D67-423A-A85A-BE2F5BE50759}|ProductCatalogue\\ProductCatalogue.csproj|c:\\nackademin\\c#\\git\\prod-cata\\productcatalogue\\productcatalogue\\menues\\productmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3AA023DE-3D67-423A-A85A-BE2F5BE50759}|ProductCatalogue\\ProductCatalogue.csproj|solutionrelative:productcatalogue\\menues\\productmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -26,11 +30,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Structure.txt",
               "DocumentMoniker": "C:\\Nackademin\\c#\\Git\\Prod-Cata\\ProductCatalogue\\ProductCatalogue\\Text Files\\Structure.txt",
               "RelativeDocumentMoniker": "ProductCatalogue\\Text Files\\Structure.txt",
@@ -43,7 +47,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Nackademin\\c#\\Git\\Prod-Cata\\ProductCatalogue\\ProductCatalogue\\Program.cs",
               "RelativeDocumentMoniker": "ProductCatalogue\\Program.cs",
@@ -56,20 +60,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "ProductMenu.cs",
               "DocumentMoniker": "C:\\Nackademin\\c#\\Git\\Prod-Cata\\ProductCatalogue\\ProductCatalogue\\Menues\\ProductMenu.cs",
               "RelativeDocumentMoniker": "ProductCatalogue\\Menues\\ProductMenu.cs",
-              "ToolTip": "C:\\Nackademin\\c#\\Git\\Prod-Cata\\ProductCatalogue\\ProductCatalogue\\Menues\\ProductMenu.cs*",
-              "RelativeToolTip": "ProductCatalogue\\Menues\\ProductMenu.cs*",
-              "ViewState": "AgIAABMAAAAAAAAAAAAQwB4AAAAVAAAAAAAAAA==",
+              "ToolTip": "C:\\Nackademin\\c#\\Git\\Prod-Cata\\ProductCatalogue\\ProductCatalogue\\Menues\\ProductMenu.cs",
+              "RelativeToolTip": "ProductCatalogue\\Menues\\ProductMenu.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAQwCAAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-15T11:07:35.209Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "ProductService.cs",
+              "DocumentMoniker": "C:\\Nackademin\\c#\\Git\\Prod-Cata\\ProductCatalogue\\ProductCatalogue\\Services\\ProductService.cs",
+              "RelativeDocumentMoniker": "ProductCatalogue\\Services\\ProductService.cs",
+              "ToolTip": "C:\\Nackademin\\c#\\Git\\Prod-Cata\\ProductCatalogue\\ProductCatalogue\\Services\\ProductService.cs",
+              "RelativeToolTip": "ProductCatalogue\\Services\\ProductService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-18T18:50:10.159Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "MainMenu.cs",
               "DocumentMoniker": "C:\\Nackademin\\c#\\Git\\Prod-Cata\\ProductCatalogue\\ProductCatalogue\\Menues\\MainMenu.cs",
               "RelativeDocumentMoniker": "ProductCatalogue\\Menues\\MainMenu.cs",
