@@ -1,55 +1,91 @@
-﻿
-using System.Text.Json.Serialization;
+﻿using Resources.Interface;
+using Resources.Models;
+using Resources.Services;
 
 namespace ProductCatalogue.Menues;
 
 internal class ProductMenu
 {
-    internal static void ProductMenuChoice()
+    private readonly ProductService _productService = new ProductService(@"C:\Nackademin\c#\Git\Prod-Cata\ProductCatalogue\ProductCatalogue\TextFiles\productlist.json");
+
+    public void CreateProductMenu()
     {
-        if (int.TryParse(Console.ReadLine(), out int choice)) {
-            switch (choice)
+        Console.Clear();
+        Console.WriteLine("Create new product; ");
+
+        Console.Write("Product name > ");
+        string productName = Console.ReadLine() ?? "";
+        
+        Console.Write("Product price > ");
+        string productPriceString = Console.ReadLine() ?? "";
+        decimal productPrice;
+        //Turning price into decimal.
+        while (!decimal.TryParse(productPriceString, out productPrice))
+        {
+            Console.WriteLine("Invalid price. Must enter a valid decimal number.");
+            Console.Write("Enter a new price; ");
+            productPriceString = Console.ReadLine() ?? "";
+        }
+        
+        Product product = new Product(productName, productPrice);
+        var result = _productService.AddToList(product);
+
+        if (result.Succeeded)
+        {
+            Console.WriteLine($"{result.Message}");
+        }
+        else
+        {
+            Console.WriteLine($"{result.Message}");
+        }
+    }
+
+    public void ShowProductsMenu()
+    {
+        Console.Clear();
+        var result = _productService.GetAllProducts();
+
+        if (result.Succeeded)
+        {
+            IEnumerable<Product>? content = result.Content;
+            if (content != null)
             {
-                case 1:
-                    Console.WriteLine("1");
-
-                    break;
-
-                case 2:
-
-                    Console.Clear();
-                    Console.ReadKey();
-
-
-                    break;
-
-                case 3:
-                    Console.WriteLine("3");
-                    break;
-
-                case 4:
-                    Console.WriteLine("4");
-                    break;
-
-                case 5:
-                    Console.WriteLine("5");
-                    break;
-
-                case 0:
-                    Environment.Exit(0);
-                    break;
-
-
-                default:
-                    Console.WriteLine("Def");
-                    break;
-             
+                Console.WriteLine("Products; ");
+                foreach (Product product in content)
+                {
+                    Console.WriteLine($"{product.ProductName.PadRight(15)}{product.ProductPrice}{product.ProductId.PadLeft(45)}");
+                }
             }
         }
         else
         {
-            Console.WriteLine("Invalid input. Must use a number to choose.");
-
+            Console.WriteLine("Something went wrong with the list.");
         }
     }
+    public void DeleteProductMenu() 
+    {
+        Console.Clear();
+        Console.WriteLine("Delete product; ");
+        Console.Write("What is the products id? > ");
+        string delete = (Console.ReadLine() ?? "");
+
+        var result = _productService.DeleteProduct(delete);
+        if (result.Succeeded)
+        {
+            Console.Clear();
+            Console.WriteLine($"{result.Message}");
+        }
+        else
+        {
+            Console.WriteLine($"{result.Message}");
+        }
+    }
+
+    public void AddOldList()
+    {
+        Console.Clear();
+        Console.Write("Filepath > ");
+        string secondaryFilePath = (Console.ReadLine() ?? "");
+    }
+
 }

@@ -1,8 +1,10 @@
-﻿namespace Resources.Interface;
+﻿using Resources.Models;
+
+namespace Resources.Interface;
 
 public interface IFileService
 {
-    public string ReadFromJson();
+    public Response<string> GetFromFile();
 
-    public string WriteToJson(string json);
+    public Response<string> SaveToFile(string json);
 }

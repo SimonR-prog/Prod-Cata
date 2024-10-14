@@ -24,26 +24,19 @@ Structure;
 
 Models;
 	Product class
+	Response class
 Menues;
 	MainMenu()
+		First thing user sees. Sends user to specific parts of productmenu.
 	ProductMenu()
+		Takes the input from user and sends to method.
 Service; (CRUD - Create, read, update, delete.)
 	ProductService
 		CreateProduct()
+		ShowProductList()
+		ShowProduct()
 		UpdateProduct()
 		DeleteProduct()
-		ShowList()
-		ShowProduct()
-
-		CheckList(product)
-			//Checks if the product is already in the product list.
-			//Must be usable for both Id and productName.
-			//Or to use for checking an entire list?
-			productList = ImportJson()
-			if product in productList
-				return true
-			else
-				return false
 
 	FileService
 		Import json-file to list.
