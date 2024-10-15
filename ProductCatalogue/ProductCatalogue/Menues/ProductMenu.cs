@@ -6,7 +6,7 @@ namespace ProductCatalogue.Menues;
 
 internal class ProductMenu
 {
-    private readonly ProductService _productService = new ProductService(@"C:\Nackademin\c#\Git\Prod-Cata\ProductCatalogue\ProductCatalogue\TextFiles\productlist.json");
+    private readonly ProductService _productService = new ProductService(Path.Combine(Directory.GetCurrentDirectory(), "currentProductList.json"));
 
     public void CreateProductMenu()
     {
@@ -42,6 +42,7 @@ internal class ProductMenu
 
     public void ShowProductsMenu()
     {
+        //Add a try catch?
         Console.Clear();
         var result = _productService.GetAllProducts();
 
@@ -86,6 +87,8 @@ internal class ProductMenu
         Console.Clear();
         Console.Write("Filepath > ");
         string secondaryFilePath = (Console.ReadLine() ?? "");
+
+        var result = _productService.AddOldList(secondaryFilePath);
     }
 
 }

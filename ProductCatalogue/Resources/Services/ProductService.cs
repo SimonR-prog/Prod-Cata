@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using Resources.Interface;
 using Resources.Models;
+using System.Runtime.CompilerServices;
 
 
 namespace Resources.Services;
@@ -98,11 +99,16 @@ public class ProductService : IProductService<Product, Product>
 
     public Response<Product> DeleteProduct(string id)
     {
+        if (string.IsNullOrEmpty(id))
+            return new Response<Product>
+            {
+                Succeeded = false,
+                Message = "Must input a valid id."
+            };
+
         try
         {
-            var product = _products.FirstOrDefault(p => p.ProductId == id);
-            Console.WriteLine($"{id}");
-            Console.ReadKey();
+            var product = _products.ToList().FirstOrDefault(p => p.ProductId == id);
             if (product == null)
             {
                 return new Response<Product>
@@ -111,7 +117,10 @@ public class ProductService : IProductService<Product, Product>
                     Message = "Product does not exist."
                 };
             }
+            
 
+            //Might not need.
+            _products = _products.ToList();
             _products.Remove(product);
 
             var json = JsonConvert.SerializeObject(_products, Formatting.Indented);
@@ -121,7 +130,7 @@ public class ProductService : IProductService<Product, Product>
                 return new Response<Product>
                 {
                     Succeeded = true,
-                    Message = "Fuck you."
+                    Message = $"{product.ProductName} was removed."
                 };
             }
             else 
@@ -141,5 +150,26 @@ public class ProductService : IProductService<Product, Product>
                 Message = ex.Message
             };
         }
+    }
+
+    public Response<Product> AddOldList(string oldFilePath)
+    {
+        //Send new string of a filepath to the fileservice and store in a new list.
+
+        //Use a foreach loop to add each product using the addtolist() method?
+
+        //
+
+
+        Console.WriteLine($"{oldFilePath}");
+        Console.ReadKey();
+
+        return new Response<Product>
+        {
+            Succeeded = true,
+
+        };
+
+
     }
 }
