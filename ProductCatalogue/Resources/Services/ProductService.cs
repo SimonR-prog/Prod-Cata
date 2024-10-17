@@ -1,7 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Resources.Interface;
 using Resources.Models;
-using System.Runtime.CompilerServices;
 
 
 namespace Resources.Services;
@@ -18,16 +17,26 @@ public class ProductService : IProductService<Product, Product>
         GetAllProducts();
     }
 
+
     public Response<Product> AddToList(Product product)
     {
         try
         {
-            if (string.IsNullOrEmpty(product.ProductName) || string.IsNullOrEmpty(product.ProductId) || product.ProductPrice <= 0)
+            if (string.IsNullOrEmpty(product.ProductName) || string.IsNullOrEmpty(product.ProductId) || product.ProductPrice <= 0m)
             {
                 return new Response<Product>
                 {
                     Succeeded = false,
-                    Message = "One or more parameters of a product was invalid."
+                    Message = $"Productname; {product.ProductName}, productprice {product.ProductPrice} or product id {product.ProductId} is invalid."
+                };
+            }
+            
+            if (_products.Any(pN => string.Equals(pN.ProductName, product.ProductName, StringComparison.OrdinalIgnoreCase)))
+            {
+                return new Response<Product>
+                {
+                    Succeeded = false,
+                    Message = $"{product.ProductName} is already on the list."
                 };
             }
 
@@ -41,17 +50,14 @@ public class ProductService : IProductService<Product, Product>
                 return new Response<Product>
                 {
                     Succeeded = true,
-                    Message = "Product was added."
+                    Message = $"{product.ProductName} was added."
                 };
             }
-            else
+            return new Response<Product>
             {
-                return new Response<Product>
-                {
-                    Succeeded = false,
-                    Message = $"{product.ProductName} was not added."
-                };
-            }
+                Succeeded = false,
+                Message = $"{product.ProductName} was not added."
+            };
         }
         catch (Exception ex)
         {
@@ -62,7 +68,7 @@ public class ProductService : IProductService<Product, Product>
             };
         }
     }
-
+    
     public Response<IEnumerable<Product>> GetAllProducts()
     {
         try
@@ -108,8 +114,8 @@ public class ProductService : IProductService<Product, Product>
 
         try
         {
-            var product = _products.ToList().FirstOrDefault(p => p.ProductId == id);
-            if (product == null)
+            var productToRemove = _products.ToList().FirstOrDefault(p => p.ProductId == id);
+            if (productToRemove == null)
             {
                 return new Response<Product>
                 {
@@ -118,10 +124,7 @@ public class ProductService : IProductService<Product, Product>
                 };
             }
             
-
-            //Might not need.
-            _products = _products.ToList();
-            _products.Remove(product);
+            _products.Remove(productToRemove);
 
             var json = JsonConvert.SerializeObject(_products, Formatting.Indented);
             var result = _fileService.SaveToFile(json);
@@ -130,7 +133,7 @@ public class ProductService : IProductService<Product, Product>
                 return new Response<Product>
                 {
                     Succeeded = true,
-                    Message = $"{product.ProductName} was removed."
+                    Message = $"{productToRemove.ProductName} was removed."
                 };
             }
             else 
@@ -151,14 +154,15 @@ public class ProductService : IProductService<Product, Product>
             };
         }
     }
-
-    public Response<Product> AddOldList(string oldFilePath)
+    /*
+    public Response<Product> AddOldList(List<Product>)
     {
         //Send new string of a filepath to the fileservice and store in a new list.
 
         //Use a foreach loop to add each product using the addtolist() method?
 
-        //
+        //if the product was invalid and not added?
+        //If the product is already in the list?
 
 
         Console.WriteLine($"{oldFilePath}");
@@ -167,9 +171,11 @@ public class ProductService : IProductService<Product, Product>
         return new Response<Product>
         {
             Succeeded = true,
+            Message = ""
 
         };
 
 
     }
+    */
 }

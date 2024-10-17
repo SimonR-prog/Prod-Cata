@@ -3,14 +3,15 @@
 Program needs;
 	Productclass.
 		Contain productname, price and id.
-		Should  automatically be given a unique id.  (GUID)
-		Product should then be added to a list.
-			If not already in the list.
-			And if the input from user is correct.
+			Should  automatically be given a unique id.  (GUID)
+	Product should then be added to a list.
+		If not already in the list.
+		And if the input from user is correct.
 	User should add name and price for the product.
 	User should be able to see the entire list.
 	List should be stored in a txt file in json format.
-	Ability to remove or change the products.
+	Ability to remove a product.
+	Ability to change a product.
 	Add an old list of products into the new one.
 
 

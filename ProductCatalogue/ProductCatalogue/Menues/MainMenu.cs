@@ -1,5 +1,4 @@
-﻿
-namespace ProductCatalogue.Menues;
+﻿namespace ProductCatalogue.Menues;
 
 internal class MainMenu
 {
@@ -32,7 +31,6 @@ internal class MainMenu
                 _productMenu.AddOldList();
                 break;
             case "0":
-                Console.WriteLine("Ending program.");
                 Environment.Exit(0);
                 break;
             default:

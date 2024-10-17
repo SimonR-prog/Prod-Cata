@@ -1,6 +1,6 @@
-﻿using Resources.Interface;
-using Resources.Models;
+﻿using Resources.Models;
 using Resources.Services;
+using System.Runtime.CompilerServices;
 
 namespace ProductCatalogue.Menues;
 
@@ -78,17 +78,34 @@ internal class ProductMenu
         }
         else
         {
+            Console.Clear();
             Console.WriteLine($"{result.Message}");
         }
     }
-
+    
     public void AddOldList()
     {
         Console.Clear();
         Console.Write("Filepath > ");
         string secondaryFilePath = (Console.ReadLine() ?? "");
 
-        var result = _productService.AddOldList(secondaryFilePath);
-    }
+        var result = _productService.GetAllProducts();
 
+        if (result.Succeeded)
+        {
+            IEnumerable<Product>? content = result.Content;
+            if (content != null)
+            {
+                foreach (Product product in content)
+                {
+                    _productService.AddToList(product);
+                }
+            }
+        }
+        else
+        {
+            Console.WriteLine("Something went wrong with the list.");
+        }
+
+    }
 }

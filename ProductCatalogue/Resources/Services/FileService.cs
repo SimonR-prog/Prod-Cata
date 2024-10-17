@@ -5,18 +5,6 @@ namespace Resources.Services;
 
 public class FileService(string filePath) : IFileService
 {
-    //Maybe need to make it so that the writer can only write to the intended file and that the reader can read from two different files.
-    //Need to make it so that if the user doesn't provide a string with the filepath then the method uses a default filepath.
-
-    /*
-     public FileService(string filePath)
-    {
-        _filePath = filePath;
-    }
-     
-     //Probably need this to set different strings as the filepath to where to get the lists from to merge them?
-     */
-
     private readonly string _filePath = filePath;
     public Response<string> GetFromFile()
     {
