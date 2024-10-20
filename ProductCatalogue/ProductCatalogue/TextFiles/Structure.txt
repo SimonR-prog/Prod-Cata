@@ -50,8 +50,7 @@ Menu;
 	Clear console.
 	1. Show the products.
 	2. Add a product.
-	3. Change a product.
+	3. Update a product.
 	4. Remove a product.
-	5. Add an old list into the new one. (????)
 	0. Exit program.
 

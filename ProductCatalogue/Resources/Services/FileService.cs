@@ -22,18 +22,18 @@ public class FileService : IFileService
             using var sr = new StreamReader(_filePath);
             var content = sr.ReadToEnd();
 
-            return new Response<string> 
-            { 
-                Succeeded = true, 
+            return new Response<string>
+            {
+                Succeeded = true,
                 Content = content
             };
         }
         catch (Exception ex)
         {
-            return new Response<string> 
-            { 
-                Succeeded = false, 
-                Message = ex.Message 
+            return new Response<string>
+            {
+                Succeeded = false,
+                Message = ex.Message
             };
         }
     }
@@ -45,17 +45,17 @@ public class FileService : IFileService
             using var sw = new StreamWriter(_filePath, false);
             sw.WriteLine(content);
 
-            return new Response<string> 
-            { 
-                Succeeded = true 
+            return new Response<string>
+            {
+                Succeeded = true
             };
         }
         catch (Exception ex)
         {
-            return new Response<string> 
-            { 
-                Succeeded = false, 
-                Message = ex.Message 
+            return new Response<string>
+            {
+                Succeeded = false,
+                Message = ex.Message
             };
         }
     }

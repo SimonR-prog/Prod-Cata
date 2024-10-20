@@ -1,10 +1,10 @@
 ﻿using Resources.Models;
 
-namespace Resources.Interface;
-
-public interface IFileService
+namespace Resources.Interface
 {
-    public Response<string> GetFromFile();
-
-    public Response<string> SaveToFile(string json);
+    public interface IFileService
+    {
+        Response<string> GetFromFile();
+        Response<string> SaveToFile(string content);
+    }
 }

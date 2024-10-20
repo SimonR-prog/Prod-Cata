@@ -30,4 +30,26 @@ public class ProductServiceTests
 
         mockFileService.Verify(fs => fs.SaveToFile(It.IsAny<string>()), Times.Once);
     }
+
+    [Fact]
+    public void GetAllProducts_ToCheckIfProduct_WasAddedToList()
+    {
+        //Arrange
+        var mockFileService = new Mock<IFileService>();
+
+        mockFileService.Setup(fs => fs.GetFromFile())
+            .Returns(new Response<string>
+            {
+                Succeeded = true,
+                Content = "[{\"ProductId\":\"P123\",\"ProductName\":\"TestProduct\",\"ProductPrice\":100.0}]"
+            });
+        var productService = new ProductService(mockFileService.Object);
+
+        //Act
+        var allProductsResponse = productService.GetAllProducts();
+
+        //Assert
+        Assert.True(allProductsResponse.Succeeded);
+        Assert.Contains(allProductsResponse.Content, p => p.ProductId == "P123" && p.ProductName == "TestProduct");
+    }
 }

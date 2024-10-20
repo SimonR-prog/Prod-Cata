@@ -1,12 +1,11 @@
 ﻿using Newtonsoft.Json;
 using Resources.Interface;
 using Resources.Models;
-using System.ComponentModel.Design;
 
 
 namespace Resources.Services;
 
-public class ProductService : IProductService<Product, Product>
+public class ProductService : IProductService
 {
     private readonly IFileService _fileService;
     private List<Product> _products;
