@@ -8,10 +8,10 @@ namespace Resources.Services;
 
 public class ProductService : IProductService<Product, Product>
 {
-    private readonly FileService _fileService;
+    private readonly IFileService _fileService;
     private List<Product> _products;
 
-    public ProductService(FileService fileService)
+    public ProductService(IFileService fileService)
     {
         _fileService = fileService;
         _products = [];
@@ -20,26 +20,25 @@ public class ProductService : IProductService<Product, Product>
 
     public Response<Product> AddToList(Product product)
     {
+        if (!ValidProduct(product.ProductId, product.ProductName, product.ProductPrice))
+        {
+            return new Response<Product>
+            {
+                Succeeded = false,
+                Message = $"Productname; {product.ProductName} \nProductprice; {product.ProductPrice} \nProductid; {product.ProductId}\nOne of the above parameters are invalid."
+            };
+        }
+
+        if (_products.Any(pName => string.Equals(pName.ProductName, product.ProductName, StringComparison.OrdinalIgnoreCase)))
+        {
+            return new Response<Product>
+            {
+                Succeeded = false,
+                Message = $"{product.ProductName} is already on the list."
+            };
+        }
         try
         {
-            if (!ValidProduct(product.ProductId, product.ProductName, product.ProductPrice))
-            {
-                return new Response<Product>
-                {
-                    Succeeded = false,
-                    Message = $"Productname; {product.ProductName} \nProductprice; {product.ProductPrice} \nProductid; {product.ProductId}\nOne of the above parameters are invalid."
-                };
-            }
-            
-            if (_products.Any(pName => string.Equals(pName.ProductName, product.ProductName, StringComparison.OrdinalIgnoreCase)))
-            {
-                return new Response<Product>
-                {
-                    Succeeded = false,
-                    Message = $"{product.ProductName} is already on the list."
-                };
-            }
-            
             _products.Add(product);
 
             var json = JsonConvert.SerializeObject(_products, Formatting.Indented);

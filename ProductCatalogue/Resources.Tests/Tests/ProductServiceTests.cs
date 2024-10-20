@@ -1,42 +1,33 @@
 ﻿using Moq;
 using Resources.Interface;
 using Resources.Models;
+using Resources.Services;
 
 namespace Resources.Tests.Tests;
 
 public class ProductServiceTests
 {
-    private readonly Mock<IProductService<Product, Product>> _productServiceMock = new();
-
     [Fact]
-    public void CreateAndAddProduct__ShouldReturnSuccessTrue__WhenProductIsCreatedAndAdded()
+    public void AddToList_ShouldReturnTrueResponse()
     {
         //Arrange
-        string productId = Guid.NewGuid().ToString();  
-        var product = new Product(productId, "tomat" , 12);
-        var wantedResponse = new Response<Product> { Succeeded = true , Message = $"{product.ProductName} was added." , Content = product};
+        var mockFileService = new Mock<IFileService>();
 
-        var productList = new List<Product>();
+        mockFileService.Setup(fs => fs.SaveToFile(It.IsAny<string>()))
+            .Returns(new Response<string> { Succeeded = true });
 
-        _productServiceMock.Setup(productService => productService.AddToList(product))
-            .Callback<Product>(p => productList.Add(p))
-            .Returns(wantedResponse);
-        var productService = _productServiceMock.Object;
+        var productService = new ProductService(mockFileService.Object);
 
-        //Act
+        string productId = Guid.NewGuid().ToString();
+        var product = new Product(productId, "Tomat", 5m);
+
+        //Act;
         var result = productService.AddToList(product);
 
-        //Assert
+        //Assert;
         Assert.True(result.Succeeded);
-        Assert.Equal(product, result.Content);
-        Assert.Contains(product, productList);
+        Assert.Equal($"{product.ProductName} was added.", result.Message);
+
+        mockFileService.Verify(fs => fs.SaveToFile(It.IsAny<string>()), Times.Once);
     }
-
-
-
-
-
-
-
-
 }
