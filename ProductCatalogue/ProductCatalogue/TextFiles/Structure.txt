@@ -11,8 +11,9 @@ Program needs;
 	User should be able to see the entire list.
 	List should be stored in a txt file in json format.
 	Ability to remove a product.
-	Ability to change a product.
-	Add an old list of products into the new one.
+	Ability to update a product. (- Optional.)
+	Add an old list of products into the new one. (- Have mistaken this one.)
+		Thought we needed to add a whole different list into the list of the program.
 
 
 Optional;
@@ -51,32 +52,6 @@ Menu;
 	2. Add a product.
 	3. Change a product.
 	4. Remove a product.
-	5. Add an old list into the new one.
+	5. Add an old list into the new one. (????)
 	0. Exit program.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

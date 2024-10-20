@@ -6,28 +6,23 @@ namespace ProductCatalogue.Menues;
 
 internal class ProductMenu
 {
-    private readonly ProductService _productService = new ProductService(Path.Combine(Directory.GetCurrentDirectory(), "currentProductList.json"));
+    private readonly ProductService _productService;
+    
+    public ProductMenu(ProductService productService)
+    {
+        _productService = productService;
+    }
 
     public void CreateProductMenu()
     {
         Console.Clear();
         Console.WriteLine("Create new product; ");
 
-        Console.Write("Product name > ");
-        string productName = Console.ReadLine() ?? "";
-        
-        Console.Write("Product price > ");
-        string productPriceString = Console.ReadLine() ?? "";
-        decimal productPrice;
-        //Turning price into decimal.
-        while (!decimal.TryParse(productPriceString, out productPrice))
-        {
-            Console.WriteLine("Invalid price. Must enter a valid decimal number.");
-            Console.Write("Enter a new price; ");
-            productPriceString = Console.ReadLine() ?? "";
-        }
-        
-        Product product = new Product(productName, productPrice);
+        string productName = SetProductName();
+        decimal productPrice = SetProductPrice();
+        string productId = Guid.NewGuid().ToString();
+
+        Product product = new Product(productId, productName, productPrice);
         var result = _productService.AddToList(product);
 
         if (result.Succeeded)
@@ -40,37 +35,113 @@ internal class ProductMenu
         }
     }
 
-    public void ShowProductsMenu()
+    public void ShowProductsMenu(int number)
     {
-        //Add a try catch?
         Console.Clear();
         var result = _productService.GetAllProducts();
+        IEnumerable<Product>? content = result.Content;
 
-        if (result.Succeeded)
+        string flatLine = new string('-', 40);
+
+        if (result.Succeeded && content != null)
         {
-            IEnumerable<Product>? content = result.Content;
-            if (content != null)
+            Console.WriteLine(flatLine);
+            Console.WriteLine("Product list; ");
+            Console.WriteLine(flatLine);
+            foreach (Product product in content) 
             {
-                Console.WriteLine("Products; ");
-                foreach (Product product in content)
+                if (number == 1)
                 {
-                    Console.WriteLine($"{product.ProductName.PadRight(15)}{product.ProductPrice}{product.ProductId.PadLeft(45)}");
+                    Console.WriteLine($"{product.ProductName} | {product.ProductPrice} ");
+                }
+                else
+                {
+                    Console.WriteLine($"{product.ProductName} | {product.ProductId}");
                 }
             }
+            Console.WriteLine(flatLine);
         }
         else
         {
             Console.WriteLine("Something went wrong with the list.");
         }
     }
+
+    public void UpdateProductMenu()
+    {
+        Console.WriteLine("** Update product; **");
+        Console.Write("\nWhat is the products id? > ");
+        string updateId = (Console.ReadLine() ?? "");
+        var productToUpdate = _productService.GetAProduct(updateId);
+        if (productToUpdate == null)
+        {
+            Console.WriteLine("Must input a valid id.");
+            return;
+        }
+        Console.Write("\nWhich would you like to update? (Name or price) > ");
+        string choice = (Console.ReadLine() ?? "").ToUpper();
+
+        if (choice == "PRICE")
+        {
+            UpdatePrice(productToUpdate);
+        }
+        else if (choice == "NAME")
+        {
+            UpdateName(productToUpdate);
+        }
+        else
+        {
+            Console.WriteLine("Must input a valid choice.");
+        }
+    }
+
+    public void UpdatePrice(Product productToUpdate)
+    {
+        decimal newProductPrice = SetProductPrice();
+        string oldProductName = productToUpdate.ProductName;
+        string oldId = productToUpdate.ProductId;
+        var result = _productService.UpdateProduct(oldId, oldProductName, newProductPrice);
+
+        if (result.Succeeded)
+        {
+            Console.Clear();
+            Console.WriteLine($"{result.Message}");
+        }
+        else
+        {
+            Console.Clear();
+            Console.WriteLine($"{result.Message}");
+        }
+    }
+    public void UpdateName(Product productToUpdate)
+    {
+        string newProductName = SetProductName();
+        decimal oldProductPrice = productToUpdate.ProductPrice;
+        string oldId = productToUpdate.ProductId;
+        var result = _productService.UpdateProduct(oldId, newProductName, oldProductPrice);
+
+        if (result.Succeeded)
+        {
+            Console.Clear();
+            Console.WriteLine($"{result.Message}");
+        }
+        else
+        {
+            Console.Clear();
+            Console.WriteLine($"{result.Message}");
+        }
+    }
+
     public void DeleteProductMenu() 
     {
-        Console.Clear();
-        Console.WriteLine("Delete product; ");
-        Console.Write("What is the products id? > ");
-        string delete = (Console.ReadLine() ?? "");
-
-        var result = _productService.DeleteProduct(delete);
+        Console.WriteLine("** Delete product; **");
+        Console.Write("\nWhat is the products id? > ");
+        string idDelete = (Console.ReadLine() ?? "");
+        if (string.IsNullOrEmpty(idDelete))
+        {
+            Console.WriteLine("Invalid id.");
+        }
+        var result = _productService.DeleteProduct(idDelete);
         if (result.Succeeded)
         {
             Console.Clear();
@@ -82,30 +153,31 @@ internal class ProductMenu
             Console.WriteLine($"{result.Message}");
         }
     }
-    
-    public void AddOldList()
+
+    public string SetProductName()
     {
-        Console.Clear();
-        Console.Write("Filepath > ");
-        string secondaryFilePath = (Console.ReadLine() ?? "");
-
-        var result = _productService.GetAllProducts();
-
-        if (result.Succeeded)
+        Console.Write("Product name > ");
+        string productName = Console.ReadLine() ?? "";
+        while (string.IsNullOrEmpty(productName))
         {
-            IEnumerable<Product>? content = result.Content;
-            if (content != null)
-            {
-                foreach (Product product in content)
-                {
-                    _productService.AddToList(product);
-                }
-            }
+            Console.WriteLine("Invalid input.");
+            Console.Write("Please add a product name; > ");
+            productName = Console.ReadLine() ?? "";
         }
-        else
-        {
-            Console.WriteLine("Something went wrong with the list.");
-        }
+        return productName;
+    }
 
+    public decimal SetProductPrice()
+    {
+        Console.Write("Product price > ");
+        string productPriceString = Console.ReadLine() ?? "";
+        decimal productPrice;
+        while (!decimal.TryParse(productPriceString, out productPrice))
+        {
+            Console.WriteLine("Invalid price. Must enter a valid decimal number.");
+            Console.Write("Enter a new price; ");
+            productPriceString = Console.ReadLine() ?? "";
+        }
+        return productPrice;
     }
 }

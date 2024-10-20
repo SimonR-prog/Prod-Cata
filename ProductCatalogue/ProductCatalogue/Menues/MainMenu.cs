@@ -2,7 +2,13 @@
 
 internal class MainMenu
 {
-    private readonly ProductMenu _productMenu = new ProductMenu();
+    private readonly ProductMenu _productMenu;
+
+    public MainMenu(ProductMenu productMenu)
+    {
+        _productMenu = productMenu;
+    }
+
     public void StartMenu()
     {   
         Console.Clear();
@@ -10,7 +16,7 @@ internal class MainMenu
         Console.WriteLine("1. Create a product.");
         Console.WriteLine("2. Show product list.");
         Console.WriteLine("3. Remove a product.");
-        Console.WriteLine("4. Add old text file of products into program.");
+        Console.WriteLine("4. Update a product.");
         Console.WriteLine("0. Exit program.");
         Console.Write("Enter an option; ");
 
@@ -22,20 +28,21 @@ internal class MainMenu
                 _productMenu.CreateProductMenu();
                 break;
             case "2":
-                _productMenu.ShowProductsMenu();
+                _productMenu.ShowProductsMenu(1);
                 break;
             case "3":
+                _productMenu.ShowProductsMenu(2);
                 _productMenu.DeleteProductMenu();
                 break;
             case "4":
-                _productMenu.AddOldList();
+                _productMenu.ShowProductsMenu(2);
+                _productMenu.UpdateProductMenu();
                 break;
             case "0":
                 Environment.Exit(0);
                 break;
             default:
-                Console.WriteLine("Invalid input.");
-                Console.ReadKey();
+                Console.WriteLine("\n> Invalid input.");
                 break;
         }
     }

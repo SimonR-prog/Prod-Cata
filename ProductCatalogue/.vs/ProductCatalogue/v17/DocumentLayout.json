@@ -3,24 +3,28 @@
   "WorkspaceRootPath": "C:\\Nackademin\\c#\\Git\\Prod-Cata\\ProductCatalogue\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3EB1E45D-0A00-4C93-80B5-974F02AB6EAD}|Resources\\Resources.csproj|c:\\nackademin\\c#\\git\\prod-cata\\productcatalogue\\resources\\services\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3EB1E45D-0A00-4C93-80B5-974F02AB6EAD}|Resources\\Resources.csproj|solutionrelative:resources\\services\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3AA023DE-3D67-423A-A85A-BE2F5BE50759}|ProductCatalogue\\ProductCatalogue.csproj|c:\\nackademin\\c#\\git\\prod-cata\\productcatalogue\\productcatalogue\\menues\\productmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3AA023DE-3D67-423A-A85A-BE2F5BE50759}|ProductCatalogue\\ProductCatalogue.csproj|solutionrelative:productcatalogue\\menues\\productmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3EB1E45D-0A00-4C93-80B5-974F02AB6EAD}|Resources\\Resources.csproj|c:\\nackademin\\c#\\git\\prod-cata\\productcatalogue\\resources\\services\\fileservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3EB1E45D-0A00-4C93-80B5-974F02AB6EAD}|Resources\\Resources.csproj|solutionrelative:resources\\services\\fileservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3AA023DE-3D67-423A-A85A-BE2F5BE50759}|ProductCatalogue\\ProductCatalogue.csproj|c:\\nackademin\\c#\\git\\prod-cata\\productcatalogue\\productcatalogue\\textfiles\\structure.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{3AA023DE-3D67-423A-A85A-BE2F5BE50759}|ProductCatalogue\\ProductCatalogue.csproj|solutionrelative:productcatalogue\\textfiles\\structure.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3AA023DE-3D67-423A-A85A-BE2F5BE50759}|ProductCatalogue\\ProductCatalogue.csproj|c:\\nackademin\\c#\\git\\prod-cata\\productcatalogue\\productcatalogue\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3AA023DE-3D67-423A-A85A-BE2F5BE50759}|ProductCatalogue\\ProductCatalogue.csproj|solutionrelative:productcatalogue\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{3EB1E45D-0A00-4C93-80B5-974F02AB6EAD}|Resources\\Resources.csproj|c:\\nackademin\\c#\\git\\prod-cata\\productcatalogue\\resources\\services\\fileservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3EB1E45D-0A00-4C93-80B5-974F02AB6EAD}|Resources\\Resources.csproj|solutionrelative:resources\\services\\fileservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{3AA023DE-3D67-423A-A85A-BE2F5BE50759}|ProductCatalogue\\ProductCatalogue.csproj|c:\\nackademin\\c#\\git\\prod-cata\\productcatalogue\\productcatalogue\\menues\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3AA023DE-3D67-423A-A85A-BE2F5BE50759}|ProductCatalogue\\ProductCatalogue.csproj|solutionrelative:productcatalogue\\menues\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3AA023DE-3D67-423A-A85A-BE2F5BE50759}|ProductCatalogue\\ProductCatalogue.csproj|c:\\nackademin\\c#\\git\\prod-cata\\productcatalogue\\productcatalogue\\menues\\productmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3AA023DE-3D67-423A-A85A-BE2F5BE50759}|ProductCatalogue\\ProductCatalogue.csproj|solutionrelative:productcatalogue\\menues\\productmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3EB1E45D-0A00-4C93-80B5-974F02AB6EAD}|Resources\\Resources.csproj|c:\\nackademin\\c#\\git\\prod-cata\\productcatalogue\\resources\\services\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3EB1E45D-0A00-4C93-80B5-974F02AB6EAD}|Resources\\Resources.csproj|solutionrelative:resources\\services\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,56 +34,69 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
+              "Title": "Structure.txt",
+              "DocumentMoniker": "C:\\Nackademin\\c#\\Git\\Prod-Cata\\ProductCatalogue\\ProductCatalogue\\TextFiles\\Structure.txt",
+              "RelativeDocumentMoniker": "ProductCatalogue\\TextFiles\\Structure.txt",
+              "ToolTip": "C:\\Nackademin\\c#\\Git\\Prod-Cata\\ProductCatalogue\\ProductCatalogue\\TextFiles\\Structure.txt",
+              "RelativeToolTip": "ProductCatalogue\\TextFiles\\Structure.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2024-10-17T07:28:36.551Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Nackademin\\c#\\Git\\Prod-Cata\\ProductCatalogue\\ProductCatalogue\\Program.cs",
               "RelativeDocumentMoniker": "ProductCatalogue\\Program.cs",
               "ToolTip": "C:\\Nackademin\\c#\\Git\\Prod-Cata\\ProductCatalogue\\ProductCatalogue\\Program.cs",
               "RelativeToolTip": "ProductCatalogue\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-16T20:42:55.378Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "MainMenu.cs",
               "DocumentMoniker": "C:\\Nackademin\\c#\\Git\\Prod-Cata\\ProductCatalogue\\ProductCatalogue\\Menues\\MainMenu.cs",
               "RelativeDocumentMoniker": "ProductCatalogue\\Menues\\MainMenu.cs",
               "ToolTip": "C:\\Nackademin\\c#\\Git\\Prod-Cata\\ProductCatalogue\\ProductCatalogue\\Menues\\MainMenu.cs",
               "RelativeToolTip": "ProductCatalogue\\Menues\\MainMenu.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-16T20:42:56.933Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "ProductMenu.cs",
               "DocumentMoniker": "C:\\Nackademin\\c#\\Git\\Prod-Cata\\ProductCatalogue\\ProductCatalogue\\Menues\\ProductMenu.cs",
               "RelativeDocumentMoniker": "ProductCatalogue\\Menues\\ProductMenu.cs",
               "ToolTip": "C:\\Nackademin\\c#\\Git\\Prod-Cata\\ProductCatalogue\\ProductCatalogue\\Menues\\ProductMenu.cs",
               "RelativeToolTip": "ProductCatalogue\\Menues\\ProductMenu.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAgAAAAzAAAAAAAAAA==",
+              "ViewState": "AgIAAJcAAAAAAAAAAAAwwA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-16T20:42:58.126Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
               "Title": "ProductService.cs",
               "DocumentMoniker": "C:\\Nackademin\\c#\\Git\\Prod-Cata\\ProductCatalogue\\Resources\\Services\\ProductService.cs",
               "RelativeDocumentMoniker": "Resources\\Services\\ProductService.cs",
               "ToolTip": "C:\\Nackademin\\c#\\Git\\Prod-Cata\\ProductCatalogue\\Resources\\Services\\ProductService.cs",
               "RelativeToolTip": "Resources\\Services\\ProductService.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAE8AAAAqAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-16T20:43:02.721Z",
               "EditorCaption": ""
@@ -92,7 +109,7 @@
               "RelativeDocumentMoniker": "Resources\\Services\\FileService.cs",
               "ToolTip": "C:\\Nackademin\\c#\\Git\\Prod-Cata\\ProductCatalogue\\Resources\\Services\\FileService.cs",
               "RelativeToolTip": "Resources\\Services\\FileService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADoAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-16T20:43:03.911Z",
               "EditorCaption": ""

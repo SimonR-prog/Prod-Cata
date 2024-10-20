@@ -1,7 +1,22 @@
 [
   {
-    "ProductId": "c6d7caa1-8644-4f85-971f-d6d2b7a7f9b6",
+    "ProductId": "02ecff24-d5d9-4007-978d-22423763ab8d",
+    "ProductName": "Banan",
+    "ProductPrice": 132.4
+  },
+  {
+    "ProductId": "e6f9c09c-b58d-4087-bd49-8f6f6a6edf56",
+    "ProductName": "Tomtemössa",
+    "ProductPrice": 123.42
+  },
+  {
+    "ProductId": "81ae969b-c375-4929-ae2e-5925693d68e4",
     "ProductName": "Tomat",
     "ProductPrice": 123.0
+  },
+  {
+    "ProductId": "b393a5c2-49e7-42b2-9001-49305850f005",
+    "ProductName": "Päron",
+    "ProductPrice": 404.0
   }
 ]

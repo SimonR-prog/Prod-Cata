@@ -12,7 +12,8 @@ public class ProductServiceTests
     public void CreateAndAddProduct__ShouldReturnSuccessTrue__WhenProductIsCreatedAndAdded()
     {
         //Arrange
-        var product = new Product("Tomat", 12m);
+        string productId = Guid.NewGuid().ToString();  
+        var product = new Product(productId, "tomat" , 12);
         var wantedResponse = new Response<Product> { Succeeded = true , Message = $"{product.ProductName} was added." , Content = product};
 
         var productList = new List<Product>();

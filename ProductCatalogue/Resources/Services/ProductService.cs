@@ -1,37 +1,37 @@
 ﻿using Newtonsoft.Json;
 using Resources.Interface;
 using Resources.Models;
+using System.ComponentModel.Design;
 
 
 namespace Resources.Services;
 
 public class ProductService : IProductService<Product, Product>
 {
-    private readonly IFileService _fileService;
+    private readonly FileService _fileService;
     private List<Product> _products;
 
-    public ProductService(string filePath)
+    public ProductService(FileService fileService)
     {
-        _fileService = new FileService(filePath);
+        _fileService = fileService;
         _products = [];
         GetAllProducts();
     }
-
 
     public Response<Product> AddToList(Product product)
     {
         try
         {
-            if (string.IsNullOrEmpty(product.ProductName) || string.IsNullOrEmpty(product.ProductId) || product.ProductPrice <= 0m)
+            if (!ValidProduct(product.ProductId, product.ProductName, product.ProductPrice))
             {
                 return new Response<Product>
                 {
                     Succeeded = false,
-                    Message = $"Productname; {product.ProductName}, productprice {product.ProductPrice} or product id {product.ProductId} is invalid."
+                    Message = $"Productname; {product.ProductName} \nProductprice; {product.ProductPrice} \nProductid; {product.ProductId}\nOne of the above parameters are invalid."
                 };
             }
             
-            if (_products.Any(pN => string.Equals(pN.ProductName, product.ProductName, StringComparison.OrdinalIgnoreCase)))
+            if (_products.Any(pName => string.Equals(pName.ProductName, product.ProductName, StringComparison.OrdinalIgnoreCase)))
             {
                 return new Response<Product>
                 {
@@ -39,7 +39,7 @@ public class ProductService : IProductService<Product, Product>
                     Message = $"{product.ProductName} is already on the list."
                 };
             }
-
+            
             _products.Add(product);
 
             var json = JsonConvert.SerializeObject(_products, Formatting.Indented);
@@ -111,19 +111,17 @@ public class ProductService : IProductService<Product, Product>
                 Succeeded = false,
                 Message = "Must input a valid id."
             };
-
+        var productToRemove = _products.ToList().FirstOrDefault(p => p.ProductId == id);
+        if (productToRemove == null)
+        {
+            return new Response<Product>
+            {
+                Succeeded = false,
+                Message = "Product does not exist."
+            };
+        }
         try
         {
-            var productToRemove = _products.ToList().FirstOrDefault(p => p.ProductId == id);
-            if (productToRemove == null)
-            {
-                return new Response<Product>
-                {
-                    Succeeded = false,
-                    Message = "Product does not exist."
-                };
-            }
-            
             _products.Remove(productToRemove);
 
             var json = JsonConvert.SerializeObject(_products, Formatting.Indented);
@@ -154,28 +152,52 @@ public class ProductService : IProductService<Product, Product>
             };
         }
     }
-    /*
-    public Response<Product> AddOldList(List<Product>)
+    
+    public Response<Product> UpdateProduct(string oldId, string newProductName, decimal newProductPrice)
     {
-        //Send new string of a filepath to the fileservice and store in a new list.
 
-        //Use a foreach loop to add each product using the addtolist() method?
+        if (!ValidProduct(oldId, newProductName, newProductPrice))
+        {
+            Console.WriteLine("Cunted.");
+            return new Response<Product>
+            {
+                Succeeded = false,
+                Message = "Something went wrong."
+            };
+        }
+        var remove = GetAProduct(oldId);
+        _products.Remove(remove);
+        Product product = new Product(oldId, newProductName, newProductPrice);
+        var result = AddToList(product);
 
-        //if the product was invalid and not added?
-        //If the product is already in the list?
-
-
-        Console.WriteLine($"{oldFilePath}");
-        Console.ReadKey();
-
+        if (result.Succeeded)
+        {
+            return new Response<Product>
+            {
+                Succeeded = true,
+                Message = $"{product.ProductName} was updated."
+            };
+        }
         return new Response<Product>
         {
-            Succeeded = true,
-            Message = ""
-
+            Succeeded = false,
+            Message = $"{product.ProductName} was not updated."
         };
-
-
     }
-    */
+
+    public bool ValidProduct(string productId, string productName, decimal productPrice)
+    {
+        if (string.IsNullOrEmpty(productName) || string.IsNullOrEmpty(productId) || productPrice < 0m)
+            return false;
+        return true;
+    }
+
+    public Product GetAProduct(string id)
+    {
+        var product = _products.ToList().FirstOrDefault(p => p.ProductId == id);
+        if (product != null)
+            return product;
+        else
+            return null!;
+    }
 }

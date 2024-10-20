@@ -1,17 +1,15 @@
 ﻿using ProductCatalogue.Menues;
-using Resources.Interface;
-using Resources.Models;
 using Resources.Services;
-using System.Runtime.CompilerServices;
 
 
-
-//IProductService<Product, Product> productService = new ProductService(Path.Combine(Directory.GetCurrentDirectory(), "currentProductList.json"));
+var fileService = new FileService((Path.Combine(Directory.GetCurrentDirectory(), "currentProductList.json")));
+var productService = new ProductService(fileService);
+var productMenu = new ProductMenu(productService);
+var mainMenu = new MainMenu(productMenu);
 
 while (true)
 {
-    MainMenu mainMenu = new MainMenu();
     mainMenu.StartMenu();
-    Console.WriteLine("Press enter to continue.");
+    Console.Write("> Press enter to continue. < ");
     Console.ReadKey();
 }

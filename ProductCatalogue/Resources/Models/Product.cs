@@ -5,11 +5,12 @@ public class Product
     public string ProductName { get; set; } = null!;
     public decimal ProductPrice { get; set; }
 
-    public Product(string productName, decimal productPrice)
+    public Product(string productId, string productName, decimal productPrice)
     {
-        ProductId = Guid.NewGuid().ToString();
+        ProductId = productId;
         ProductName = productName;
         ProductPrice = productPrice;
     }
+
 }
 
